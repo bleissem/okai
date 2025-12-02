@@ -1,0 +1,102 @@
+{
+  "themes": {
+    "default": {
+      "assistantPrefix": "bold yellow",
+      "userPrefix": "bold green",
+      "tool": "blue",
+      "warning": "yellow",
+      "error": "red",
+      "trace": "dim",
+      "headerTitle": "bold cyan",
+      "headerLabel": "gray",
+      "headerValue": "white",
+      "statusLabel": "gray",
+      "statusValue": "white",
+      "shellIdle": "gray"
+    },
+    "highcontrast": {
+      "assistantPrefix": "bold blue",
+      "userPrefix": "bold green",
+      "tool": "bold yellow",
+      "warning": "bold yellow",
+      "error": "bold red",
+      "trace": "gray",
+      "headerTitle": "bold white",
+      "headerLabel": "white",
+      "headerValue": "aqua",
+      "statusLabel": "white",
+      "statusValue": "aqua",
+      "shellIdle": "gray"
+    },
+    "solarized": {
+      "assistantPrefix": "rgb(181,137,0)",
+      "userPrefix": "rgb(38,139,210)",
+      "tool": "rgb(42,161,152)",
+      "warning": "rgb(203,75,22)",
+      "error": "rgb(220,50,47)",
+      "trace": "rgb(147,161,161)",
+      "headerTitle": "rgb(108,113,196)",
+      "headerLabel": "rgb(88,110,117)",
+      "headerValue": "rgb(131,148,150)",
+      "statusLabel": "rgb(88,110,117)",
+      "statusValue": "rgb(131,148,150)",
+      "shellIdle": "rgb(147,161,161)"
+    },
+    "tomorrownightblue": {
+      "assistantPrefix": "rgb(153,214,255)",
+      "userPrefix": "rgb(209,241,169)",
+      "tool": "rgb(153,221,255)",
+      "warning": "rgb(255,197,143)",
+      "error": "rgb(255,157,164)",
+      "trace": "rgb(114,133,183)",
+      "headerTitle": "rgb(153,214,255)",
+      "headerLabel": "rgb(114,133,183)",
+      "headerValue": "rgb(255,255,255)",
+      "statusLabel": "rgb(114,133,183)",
+      "statusValue": "rgb(209,241,169)",
+      "shellIdle": "rgb(114,133,183)"
+    },
+    "vsdark": {
+      "assistantPrefix": "rgb(255,203,107)",
+      "userPrefix": "rgb(86,199,255)",
+      "tool": "rgb(141,200,255)",
+      "warning": "rgb(255,199,109)",
+      "error": "rgb(255,140,140)",
+      "trace": "rgb(145,145,145)",
+      "headerTitle": "rgb(127,196,255)",
+      "headerLabel": "rgb(150,150,150)",
+      "headerValue": "rgb(220,220,220)",
+      "statusLabel": "rgb(150,150,150)",
+      "statusValue": "rgb(220,220,220)",
+      "shellIdle": "rgb(145,145,145)"
+    },
+    "vslight": {
+      "assistantPrefix": "rgb(218,112,44)",
+      "userPrefix": "rgb(0,102,204)",
+      "tool": "rgb(0,153,204)",
+      "warning": "rgb(204,102,0)",
+      "error": "rgb(204,0,0)",
+      "trace": "rgb(110,110,110)",
+      "headerTitle": "rgb(0,122,204)",
+      "headerLabel": "rgb(90,90,90)",
+      "headerValue": "rgb(40,40,40)",
+      "statusLabel": "rgb(90,90,90)",
+      "statusValue": "rgb(40,40,40)",
+      "shellIdle": "rgb(110,110,110)"
+    },
+    "vshighcontrast": {
+      "assistantPrefix": "bold white on rgb(0,0,0)",
+      "userPrefix": "bold black on rgb(255,255,0)",
+      "tool": "bold white on rgb(0,120,215)",
+      "warning": "bold black on rgb(255,255,0)",
+      "error": "bold white on rgb(255,0,0)",
+      "trace": "bold white on rgb(0,0,0)",
+      "headerTitle": "bold white on rgb(0,0,0)",
+      "headerLabel": "bold white on rgb(0,0,0)",
+      "headerValue": "bold yellow on rgb(0,0,0)",
+      "statusLabel": "bold white on rgb(0,0,0)",
+      "statusValue": "bold yellow on rgb(0,0,0)",
+      "shellIdle": "bold white on rgb(0,0,0)"
+    }
+  }
+}
