@@ -18,7 +18,7 @@
 - Keep single responsibility per class/method, use explicit error handling (no silent swallowing), and prefer readable names over abbreviations; keep methods short.
 - Follow common .NET architecture principles (clear layers/boundaries, dependency injection, SOLID; avoid god objects and tight coupling).
 - Formatting: prefer `dotnet format` before committing; keep lines reasonably short and avoid unnecessary comments. Run `dotnet format` on every change set manually and do not auto-commit/auto-stage the results.
-- DI & Lifetimes: choose service lifetimes deliberately (avoid mutable state in singletons), prefer constructor injection, and keep container setup minimal.
+- DI & Lifetimes: prefer the least lifetime needed (transient > scoped > singleton); avoid mutable state in singletons, prefer constructor injection, and keep container setup minimal.
 - Validation & Guards: validate inputs early (null/empty, paths, ranges) with clear argument guards; fail fast with actionable errors.
 - Resources & Cleanup: respect `IDisposable`, avoid leaking streams/clients/processes; tests and tools must clean up temp files and dirs.
 
