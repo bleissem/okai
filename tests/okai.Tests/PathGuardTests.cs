@@ -18,6 +18,20 @@ public class PathGuardTests
     }
 
     [Fact]
+    public void RejectsWindowsStyleTraversal_OnUnix()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var guard = new PathGuard();
+        using var root = new TempFolder();
+
+        Assert.Throws<InvalidOperationException>(() => guard.Resolve(root.Path, "..\\secret.txt"));
+    }
+
+    [Fact]
     public void AllowsPathInsideRoot()
     {
         var guard = new PathGuard();

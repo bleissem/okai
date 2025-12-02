@@ -12,7 +12,8 @@ public class PathGuard : IPathGuard
     public string Resolve(string root, string relative)
     {
         var normalizedRoot = EnsureTrailingSeparator(Path.GetFullPath(root));
-        var combined = Path.GetFullPath(Path.Combine(normalizedRoot, relative));
+        var sanitizedRelative = NormalizeSeparators(relative);
+        var combined = Path.GetFullPath(Path.Combine(normalizedRoot, sanitizedRelative));
         var relativeToRoot = Path.GetRelativePath(normalizedRoot, combined);
         if (IsOutsideRoot(relativeToRoot))
         {
@@ -29,4 +30,7 @@ public class PathGuard : IPathGuard
         string.Equals(relativeToRoot, "..", StringComparison.Ordinal)
         || relativeToRoot.StartsWith(".." + Path.DirectorySeparatorChar, StringComparison.Ordinal)
         || relativeToRoot.StartsWith(".." + Path.AltDirectorySeparatorChar, StringComparison.Ordinal);
+
+    private static string NormalizeSeparators(string relative) =>
+        OperatingSystem.IsWindows() ? relative : relative.Replace('\\', Path.DirectorySeparatorChar);
 }

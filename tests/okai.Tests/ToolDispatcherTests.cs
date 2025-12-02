@@ -39,7 +39,8 @@ public class ToolDispatcherTests
         using var temp = new TempFolder();
         var mediator = BuildMediator(temp.Path);
 
-        var result = await mediator.Send(new ReadFileQuery("..\\secret.txt"));
+        var escape = OperatingSystem.IsWindows() ? "..\\secret.txt" : "../secret.txt";
+        var result = await mediator.Send(new ReadFileQuery(escape));
 
         Assert.Contains("outside of the allowed root", result.Log);
     }
