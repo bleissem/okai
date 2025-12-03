@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\okai.Tests\**\*.cs"
+             Exclude="..\okai.Tests\RunShellHandlerTests.cs;..\okai.Tests\ShellRunnerTests.cs;..\okai.Tests\WebSearchHandlerTests.cs;..\okai.Tests\WebSearchClientTests.cs;..\okai.Tests\ToolDispatcherTests.cs;..\okai.Tests\ToolRequestFactoryTests.cs;..\okai.Tests\SlashThemeTests.cs;..\okai.Tests\HelpTests.cs;..\okai.Tests\okai.Tests.csproj;..\okai.Tests\bin\**\*;..\okai.Tests\obj\**\*" />
+  </ItemGroup>
+</Project>
