@@ -1,24 +1,23 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>okai</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\src\okai\**\*.cs"
+             Exclude="..\src\okai\Agents\**\*;..\src\okai\Program.cs;..\src\okai\Extensions\**\*;..\src\okai\bin\**\*;..\src\okai\obj\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Azure.AI.Projects" Version="1.2.0-beta.4" />
     <PackageReference Include="Azure.Identity" Version="1.17.1" />
-    <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.251125.1" />
-    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.0.1-preview.1.25571.5" />
-    <PackageReference Include="OpenAI" Version="2.7.0" />
-    <PackageReference Include="Spectre.Console" Version="0.48.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
-
+    <PackageReference Include="Spectre.Console" Version="0.48.0" />
   </ItemGroup>
 
 </Project>
