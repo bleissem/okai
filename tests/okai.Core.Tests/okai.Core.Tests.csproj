@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\okai.Core\okai.Core.csproj" />
+    <ProjectReference Include="..\..\src\okai.Core\okai.Core.csproj" />
   </ItemGroup>
 
 </Project>
