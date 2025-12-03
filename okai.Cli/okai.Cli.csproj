@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\src\okai\Program.cs" />
   </ItemGroup>
 
   <ItemGroup>

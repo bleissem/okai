@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\src\okai\Agents\**\*.cs" Exclude="..\src\okai\Agents\bin\**\*;..\src\okai\Agents\obj\**\*" />
-    <Compile Include="..\src\okai\Extensions\**\*.cs" Exclude="..\src\okai\Extensions\bin\**\*;..\src\okai\Extensions\obj\**\*" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\okai.Core\okai.Core.csproj" />
   </ItemGroup>
 

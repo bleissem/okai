@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\src\okai\**\*.cs"
-             Exclude="..\src\okai\Agents\**\*;..\src\okai\Program.cs;..\src\okai\Extensions\**\*;..\src\okai\bin\**\*;..\src\okai\obj\**\*" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Azure.AI.Projects" Version="1.2.0-beta.4" />
     <PackageReference Include="Azure.Identity" Version="1.17.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.0" />
