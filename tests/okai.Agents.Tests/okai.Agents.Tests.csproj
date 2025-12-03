@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\okai.Agents\okai.Agents.csproj" />
-    <ProjectReference Include="..\..\okai.Core\okai.Core.csproj" />
-    <ProjectReference Include="..\..\okai.Cli\okai.Cli.csproj" />
+    <ProjectReference Include="..\..\src\okai.Agents\okai.Agents.csproj" />
+    <ProjectReference Include="..\..\src\okai.Core\okai.Core.csproj" />
+    <ProjectReference Include="..\..\src\okai.Cli\okai.Cli.csproj" />
   </ItemGroup>
 
 </Project>
