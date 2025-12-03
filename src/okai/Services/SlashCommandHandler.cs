@@ -6,61 +6,45 @@ namespace okai;
 public class SlashCommandHandler : ISlashCommandHandler
 {
     private readonly IConsoleTheme _console;
-    private readonly IThemeResolver _themes;
+    private readonly IThemeResolver _resolver;
     private readonly AppOptions _options;
 
-    public SlashCommandHandler(IConsoleTheme console, IThemeResolver themes, AppOptions options)
+    public SlashCommandHandler(IConsoleTheme console, IThemeResolver resolver, AppOptions options)
     {
         _console = console;
-        _themes = themes;
+        _resolver = resolver;
         _options = options;
     }
 
-    public async Task<SlashResult> HandleAsync(
-        string input,
-        AIProjectClient projectClient,
-        ChatClient chatClient,
-        AppOptions options,
-        List<ChatMessage> messages)
+    public Task<SlashResult> HandleAsync(string input, AIProjectClient projectClient, ChatClient chatClient, AppOptions options, List<ChatMessage> messages)
     {
-        var trimmed = input.Trim();
-        if (!trimmed.StartsWith("/"))
+        if (!input.StartsWith("/"))
         {
-            return SlashResult.CreateNotHandled(options.Model, chatClient);
+            return Task.FromResult(SlashResult.CreateNotHandled(options.Model, chatClient));
         }
 
-        var parts = trimmed.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        var command = parts[0].ToLowerInvariant();
-
-        switch (command)
+        if (input.Equals("/exit", StringComparison.OrdinalIgnoreCase))
         {
-            case "/exit":
-                return SlashResult.CreateExit(options.Model, chatClient);
-            case "/help":
-                _console.PrintStatus("commands: /help, /exit, /model <name>, /theme list, /theme <name>");
-                return SlashResult.CreateHandled(options.Model, chatClient);
-            case "/model" when parts.Length >= 2:
-                {
-                    var model = parts[1];
-                    var newClient = projectClient.OpenAI.GetChatClient(model);
-                    _console.PrintStatus($"switched model to {model}");
-                    return SlashResult.CreateHandled(model, newClient);
-                }
-            case "/theme" when parts.Length == 2 && parts[1].Equals("list", StringComparison.OrdinalIgnoreCase):
-                _console.PrintStatus($"themes: {string.Join(", ", _themes.Names)}");
-                return SlashResult.CreateHandled(options.Model, chatClient);
-            case "/theme" when parts.Length == 2:
-                {
-                    var name = parts[1];
-                    var palette = _themes.Resolve(name);
-                    _console.ApplyPalette(palette);
-                    _console.PrintHeader(_options.Endpoint, options.Model, _options.Root);
-                    _console.RenderStatusBar(options.Model, _options.Root);
-                    _console.PrintStatus($"applied theme '{name}'");
-                    return SlashResult.CreateHandled(options.Model, chatClient);
-                }
-            default:
-                return SlashResult.CreateNotHandled(options.Model, chatClient);
+            return Task.FromResult(SlashResult.CreateExit(options.Model, chatClient));
         }
+
+        if (input.StartsWith("/theme", StringComparison.OrdinalIgnoreCase))
+        {
+            var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            if (parts.Length == 1 || parts[1].Equals("list", StringComparison.OrdinalIgnoreCase))
+            {
+                var names = string.Join(", ", _resolver.Names);
+                _console.PrintStatus($"themes: {names}");
+                return Task.FromResult(SlashResult.CreateHandled(options.Model, chatClient));
+            }
+
+            var name = parts[1];
+            var palette = _resolver.Resolve(name);
+            _console.ApplyPalette(palette);
+            _console.PrintHeader(_options.Endpoint, options.Model, _options.Root);
+            return Task.FromResult(SlashResult.CreateHandled(options.Model, chatClient));
+        }
+
+        return Task.FromResult(SlashResult.CreateNotHandled(options.Model, chatClient));
     }
 }
